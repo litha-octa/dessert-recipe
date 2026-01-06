@@ -1,36 +1,156 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sweet Recipes Hub
+
+A delightful, modern dessert recipe web application built with Next.js 16 and React 19. Discover mouthwatering desserts from around the world with step-by-step instructions, nutritional info, and downloadable PDFs.
+
+![Next.js](https://img.shields.io/badge/Next.js-16.1-black?style=flat-square&logo=next.js)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38B2AC?style=flat-square&logo=tailwind-css)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript)
+
+---
+
+## What's Cooking?
+
+Sweet Recipes Hub is your go-to destination for international dessert recipes. From the creamy layers of **Italian Tiramisu** to the crackling caramel top of **French Creme Brulee**, we've curated a collection of beloved desserts that will satisfy any sweet tooth.
+
+### Featured Recipes
+
+| Recipe | Origin | Difficulty |
+|--------|--------|------------|
+| Classic Italian Tiramisu | Italy | Medium |
+| Molten Chocolate Lava Cake | France | Medium |
+| Classic Creme Brulee | France | Medium |
+| French Macarons | France | Hard |
+| New York Cheesecake | USA | Medium |
+| Ultimate Fudgy Brownies | USA | Easy |
+| Chocolate Profiteroles | France | Hard |
+| Vanilla Panna Cotta | Italy | Easy |
+| Classic Apple Pie | USA | Medium |
+| Authentic Italian Gelato | Italy | Medium |
+
+---
+
+## Features
+
+- **Smart Search** - Find recipes by name, ingredients, or tags
+- **Category Filters** - Browse by cakes, cookies, puddings, pastries, tarts, and ice cream
+- **Difficulty Levels** - Filter by easy, medium, or hard recipes
+- **Detailed Instructions** - Step-by-step guidance for every recipe
+- **Nutrition Info** - Calories, protein, carbs, and fat per serving
+- **PDF Export** - Download recipes to cook offline
+- **Social Sharing** - Share via WhatsApp or Email
+- **Responsive Design** - Beautiful on desktop, tablet, and mobile
+- **Smooth Animations** - Powered by Framer Motion
+
+---
+
+## Tech Stack
+
+```
+Frontend       Next.js 16 + React 19 + TypeScript
+Styling        Tailwind CSS 4 + tailwindcss-animate
+Icons          Lucide React
+Animations     Framer Motion
+PDF Generation @react-pdf/renderer
+Email          Resend
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm, yarn, pnpm, or bun
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone <your-repo-url>
+cd dessert-recipes
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to start exploring recipes!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Create production build |
+| `npm run start` | Run production server |
+| `npm run lint` | Run ESLint |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/
+│   ├── api/
+│   │   ├── generate-pdf/    # PDF generation endpoint
+│   │   ├── recipes/         # Recipe API routes
+│   │   └── send-email/      # Email sharing endpoint
+│   ├── recipe/[slug]/       # Dynamic recipe pages
+│   ├── layout.tsx           # Root layout
+│   └── page.tsx             # Homepage
+├── lib/
+│   ├── constants/           # Category & difficulty configs
+│   ├── data/
+│   │   └── recipes.json     # Recipe database
+│   └── utils/               # Helper functions
+└── types/
+    └── recipe.ts            # TypeScript definitions
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Recipe Categories
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Cake** - Cheesecakes, lava cakes, and more
+- **Cookie** - Brownies, macarons, and crispy treats
+- **Pudding** - Tiramisu, creme brulee, panna cotta
+- **Pastry** - Profiteroles and choux creations
+- **Tart** - Classic fruit tarts and pies
+- **Ice Cream** - Gelato and frozen desserts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Contributing
+
+Found a bug or want to add a new recipe? Contributions are welcome!
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-recipe`)
+3. Commit your changes (`git commit -m 'Add amazing recipe'`)
+4. Push to the branch (`git push origin feature/amazing-recipe`)
+5. Open a Pull Request
+
+---
+
+## Deploy
+
+Deploy instantly on Vercel:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/dessert-recipes)
+
+---
+
+## License
+
+MIT License - feel free to use this project for your own sweet creations!
+
+---
+
+<p align="center">
+  Made with butter, sugar, and Next.js
+</p>
