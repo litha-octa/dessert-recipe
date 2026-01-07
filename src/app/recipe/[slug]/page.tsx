@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import recipesData from "@/lib/data/recipes.json";
 import { Clock, Users, ChefHat, Printer, Share2 } from "lucide-react";
 import TimerPopup from "@/components/TimerPopup";
+import ShoppingListPDF from "@/components/ShoppingListPDF";
 
 interface RecipePageProps {
   params: Promise<{
@@ -205,10 +206,11 @@ export default async function RecipePage({ params }: RecipePageProps) {
               </div>
 
               <div className="mt-6 pt-6 border-t border-gray-200">
-                <button className="w-full py-2 text-sm text-primary-600 hover:text-primary-700 font-medium flex items-center justify-center gap-2">
-                  <Printer size={16} />
-                  Print Shopping List
-                </button>
+                <ShoppingListPDF
+                  recipeTitle={recipe.title}
+                  ingredients={recipe.ingredients}
+                  servings={recipe.servings}
+                />
               </div>
             </div>
           </div>
@@ -247,7 +249,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
               {/* Tips Section (Optional) */}
               <div className="mt-8 p-4 bg-amber-50 border border-amber-200 rounded-lg">
                 <h3 className="font-bold text-amber-900 mb-2 flex items-center gap-2">
-                  💡 Chef's Tip
+                  💡 Chefs Tip
                 </h3>
                 <p className="text-sm text-amber-800">
                   For best results, make sure all ingredients are at room
