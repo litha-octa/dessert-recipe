@@ -11,7 +11,7 @@ export default function RecipeActions() {
   return (
     <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 print:hidden">
       <Link
-        href={`/recipe/${slug}/print`}
+        href={`/recipe/${slug}/export`}
         className="px-4 sm:px-6 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors text-sm sm:text-base flex items-center justify-center gap-2"
       >
         <Printer size={18} />
