@@ -12,6 +12,7 @@ import {
   ArrowLeft,
   Settings,
   Loader2,
+  X,
 } from "lucide-react";
 
 export default function PrintRecipePage() {
@@ -26,6 +27,7 @@ export default function PrintRecipePage() {
   const [showInstructions, setShowInstructions] = useState(true);
   const [showDescription, setShowDescription] = useState(true);
   const [isExporting, setIsExporting] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const loadImage = (src: string): Promise<HTMLImageElement> => {
     return new Promise((resolve, reject) => {
@@ -341,90 +343,112 @@ export default function PrintRecipePage() {
   }
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
-      {/* Sidebar - hidden in print */}
-      <aside className="w-72 bg-white border-r border-gray-200 p-6 fixed h-full overflow-y-auto print:hidden">
-        <div className="flex items-center gap-2 mb-6">
-          <Settings size={20} className="text-primary-500" />
-          <h2 className="text-lg font-bold text-gray-800">Print Settings</h2>
-        </div>
+    <div className="min-h-screen bg-gray-100">
+      {/* Mobile Header Bar */}
+      <div className="lg:hidden sticky top-0 z-20 bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between">
+        <button
+          onClick={() => router.back()}
+          className="p-2 text-gray-600 hover:text-gray-800"
+        >
+          <ArrowLeft size={20} />
+        </button>
+        <h2 className="font-semibold text-gray-800">Export PDF</h2>
+        <button
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+          className="p-2 text-gray-600 hover:text-gray-800"
+        >
+          <Settings size={20} />
+        </button>
+      </div>
 
-        <div className="space-y-4">
-          <p className="text-sm text-gray-500 font-medium">
-            Choose what to include:
-          </p>
+      {/* Mobile Settings Panel */}
+      <div
+        className={`lg:hidden fixed inset-x-0 top-[53px] z-10 bg-white border-b border-gray-200 shadow-lg transition-all duration-300 ease-in-out overflow-hidden ${
+          sidebarOpen ? "max-h-[70vh] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="p-4 max-h-[70vh] overflow-y-auto">
+          <div className="flex items-center justify-between mb-4">
+            <p className="text-sm text-gray-500 font-medium">
+              Choose what to include:
+            </p>
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="p-1 text-gray-400 hover:text-gray-600"
+            >
+              <X size={18} />
+            </button>
+          </div>
 
-          <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
-            <span className="text-sm text-gray-700">Header Image</span>
-            <input
-              type="checkbox"
-              checked={showImage}
-              onChange={(e) => setShowImage(e.target.checked)}
-              className="w-5 h-5 text-primary-500 rounded focus:ring-primary-500"
-            />
-          </label>
+          <div className="grid grid-cols-2 gap-2 mb-4">
+            <label className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg cursor-pointer">
+              <input
+                type="checkbox"
+                checked={showImage}
+                onChange={(e) => setShowImage(e.target.checked)}
+                className="w-4 h-4 text-primary-500 rounded"
+              />
+              <span className="text-sm text-gray-700">Image</span>
+            </label>
+            <label className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg cursor-pointer">
+              <input
+                type="checkbox"
+                checked={showDescription}
+                onChange={(e) => setShowDescription(e.target.checked)}
+                className="w-4 h-4 text-primary-500 rounded"
+              />
+              <span className="text-sm text-gray-700">Description</span>
+            </label>
+            <label className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg cursor-pointer">
+              <input
+                type="checkbox"
+                checked={showDetails}
+                onChange={(e) => setShowDetails(e.target.checked)}
+                className="w-4 h-4 text-primary-500 rounded"
+              />
+              <span className="text-sm text-gray-700">Details</span>
+            </label>
+            <label className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg cursor-pointer">
+              <input
+                type="checkbox"
+                checked={showNutrition}
+                onChange={(e) => setShowNutrition(e.target.checked)}
+                className="w-4 h-4 text-primary-500 rounded"
+              />
+              <span className="text-sm text-gray-700">Nutrition</span>
+            </label>
+            <label className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg cursor-pointer">
+              <input
+                type="checkbox"
+                checked={showIngredients}
+                onChange={(e) => setShowIngredients(e.target.checked)}
+                className="w-4 h-4 text-primary-500 rounded"
+              />
+              <span className="text-sm text-gray-700">Ingredients</span>
+            </label>
+            <label className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg cursor-pointer">
+              <input
+                type="checkbox"
+                checked={showInstructions}
+                onChange={(e) => setShowInstructions(e.target.checked)}
+                className="w-4 h-4 text-primary-500 rounded"
+              />
+              <span className="text-sm text-gray-700">Instructions</span>
+            </label>
+          </div>
 
-          <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
-            <span className="text-sm text-gray-700">Description</span>
-            <input
-              type="checkbox"
-              checked={showDescription}
-              onChange={(e) => setShowDescription(e.target.checked)}
-              className="w-5 h-5 text-primary-500 rounded focus:ring-primary-500"
-            />
-          </label>
-
-          <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
-            <span className="text-sm text-gray-700">Recipe Details</span>
-            <input
-              type="checkbox"
-              checked={showDetails}
-              onChange={(e) => setShowDetails(e.target.checked)}
-              className="w-5 h-5 text-primary-500 rounded focus:ring-primary-500"
-            />
-          </label>
-
-          <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
-            <span className="text-sm text-gray-700">Nutrition Facts</span>
-            <input
-              type="checkbox"
-              checked={showNutrition}
-              onChange={(e) => setShowNutrition(e.target.checked)}
-              className="w-5 h-5 text-primary-500 rounded focus:ring-primary-500"
-            />
-          </label>
-
-          <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
-            <span className="text-sm text-gray-700">Ingredients</span>
-            <input
-              type="checkbox"
-              checked={showIngredients}
-              onChange={(e) => setShowIngredients(e.target.checked)}
-              className="w-5 h-5 text-primary-500 rounded focus:ring-primary-500"
-            />
-          </label>
-
-          <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
-            <span className="text-sm text-gray-700">Instructions</span>
-            <input
-              type="checkbox"
-              checked={showInstructions}
-              onChange={(e) => setShowInstructions(e.target.checked)}
-              className="w-5 h-5 text-primary-500 rounded focus:ring-primary-500"
-            />
-          </label>
-        </div>
-
-        <div className="mt-8 space-y-3">
           <button
-            onClick={handleExportPDF}
+            onClick={() => {
+              handleExportPDF();
+              setSidebarOpen(false);
+            }}
             disabled={isExporting}
-            className="w-full px-4 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors flex items-center justify-center gap-2 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-4 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors flex items-center justify-center gap-2 font-medium disabled:opacity-50"
           >
             {isExporting ? (
               <>
                 <Loader2 size={18} className="animate-spin" />
-                Generating PDF...
+                Generating...
               </>
             ) : (
               <>
@@ -433,19 +457,115 @@ export default function PrintRecipePage() {
               </>
             )}
           </button>
-
-          <button
-            onClick={() => router.back()}
-            className="w-full px-4 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
-          >
-            <ArrowLeft size={18} />
-            Back to Recipe
-          </button>
         </div>
-      </aside>
+      </div>
 
-      {/* Main Content - Preview */}
-      <main className="flex-1 ml-72 bg-white min-h-screen p-8 max-w-4xl mx-auto">
+      {/* Desktop Layout */}
+      <div className="flex">
+        {/* Desktop Sidebar */}
+        <aside className="hidden lg:block w-72 bg-white border-r border-gray-200 p-6 fixed h-full overflow-y-auto print:hidden">
+          <div className="flex items-center gap-2 mb-6">
+            <Settings size={20} className="text-primary-500" />
+            <h2 className="text-lg font-bold text-gray-800">Export Settings</h2>
+          </div>
+
+          <div className="space-y-4">
+            <p className="text-sm text-gray-500 font-medium">
+              Choose what to include:
+            </p>
+
+            <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
+              <span className="text-sm text-gray-700">Header Image</span>
+              <input
+                type="checkbox"
+                checked={showImage}
+                onChange={(e) => setShowImage(e.target.checked)}
+                className="w-5 h-5 text-primary-500 rounded focus:ring-primary-500"
+              />
+            </label>
+
+            <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
+              <span className="text-sm text-gray-700">Description</span>
+              <input
+                type="checkbox"
+                checked={showDescription}
+                onChange={(e) => setShowDescription(e.target.checked)}
+                className="w-5 h-5 text-primary-500 rounded focus:ring-primary-500"
+              />
+            </label>
+
+            <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
+              <span className="text-sm text-gray-700">Recipe Details</span>
+              <input
+                type="checkbox"
+                checked={showDetails}
+                onChange={(e) => setShowDetails(e.target.checked)}
+                className="w-5 h-5 text-primary-500 rounded focus:ring-primary-500"
+              />
+            </label>
+
+            <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
+              <span className="text-sm text-gray-700">Nutrition Facts</span>
+              <input
+                type="checkbox"
+                checked={showNutrition}
+                onChange={(e) => setShowNutrition(e.target.checked)}
+                className="w-5 h-5 text-primary-500 rounded focus:ring-primary-500"
+              />
+            </label>
+
+            <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
+              <span className="text-sm text-gray-700">Ingredients</span>
+              <input
+                type="checkbox"
+                checked={showIngredients}
+                onChange={(e) => setShowIngredients(e.target.checked)}
+                className="w-5 h-5 text-primary-500 rounded focus:ring-primary-500"
+              />
+            </label>
+
+            <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
+              <span className="text-sm text-gray-700">Instructions</span>
+              <input
+                type="checkbox"
+                checked={showInstructions}
+                onChange={(e) => setShowInstructions(e.target.checked)}
+                className="w-5 h-5 text-primary-500 rounded focus:ring-primary-500"
+              />
+            </label>
+          </div>
+
+          <div className="mt-8 space-y-3">
+            <button
+              onClick={handleExportPDF}
+              disabled={isExporting}
+              className="w-full px-4 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors flex items-center justify-center gap-2 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isExporting ? (
+                <>
+                  <Loader2 size={18} className="animate-spin" />
+                  Generating PDF...
+                </>
+              ) : (
+                <>
+                  <Download size={18} />
+                  Download PDF
+                </>
+              )}
+            </button>
+
+            <button
+              onClick={() => router.back()}
+              className="w-full px-4 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
+            >
+              <ArrowLeft size={18} />
+              Back to Recipe
+            </button>
+          </div>
+        </aside>
+
+        {/* Main Content - Preview */}
+        <main className="flex-1 lg:ml-72 bg-white min-h-screen p-4 sm:p-8 max-w-4xl mx-auto">
         {/* Header */}
         <header
           className={`relative rounded-xl overflow-hidden mb-6 ${
@@ -492,7 +612,7 @@ export default function PrintRecipePage() {
 
         {/* Recipe Info */}
         {showDetails && (
-          <section className="grid grid-cols-4 gap-4 mb-6 pb-4 border-b border-gray-200">
+          <section className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mb-6 pb-4 border-b border-gray-200">
             <div className="text-center p-3 bg-gray-50 rounded-lg">
               <Clock size={18} className="mx-auto mb-1 text-gray-600" />
               <p className="text-xs text-gray-500">Prep Time</p>
@@ -559,7 +679,7 @@ export default function PrintRecipePage() {
             <h2 className="text-xl font-bold text-gray-800 mb-3">
               Ingredients ({recipe.ingredients.length} items)
             </h2>
-            <ul className="grid grid-cols-2 gap-x-8 gap-y-1">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1">
               {recipe.ingredients.map((ingredient, index) => (
                 <li key={index} className="flex items-center gap-2 py-1">
                   <span className="w-2 h-2 bg-primary-500 rounded-full flex-shrink-0"></span>
@@ -595,7 +715,8 @@ export default function PrintRecipePage() {
             </ol>
           </section>
         )}
-      </main>
+        </main>
+      </div>
     </div>
   );
 }
