@@ -65,3 +65,38 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Print styles */
+@media print {
+  .print\:hidden {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Print page specific styles */
+  .print-page {
+    padding: 0 !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .instruction-step {
+    break-inside: avoid;
+  }
+
+  /* Ensure background images print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+}
