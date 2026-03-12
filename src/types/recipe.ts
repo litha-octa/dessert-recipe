@@ -33,7 +33,11 @@ export interface Recipe {
   tags: string[]
   author: string
   datePublished: string
+  rating?: number
+  reviewCount?: number
 }
+
+export type SortOption = 'default' | 'name-asc' | 'name-desc' | 'time-asc' | 'time-desc' | 'difficulty'
 
 export interface RecipeFilters {
   category?: RecipeCategory

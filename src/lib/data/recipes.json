@@ -44,7 +44,9 @@
       },
       "tags": ["Italian", "No-bake", "Coffee", "Classic", "Make-ahead"],
       "author": "Chef Marco Rossi",
-      "datePublished": "2024-12-15"
+      "datePublished": "2024-12-15",
+      "rating": 4.8,
+      "reviewCount": 124
     },
     {
       "id": "2",
@@ -93,7 +95,9 @@
       },
       "tags": ["Chocolate", "French", "Romantic", "Quick", "Impressive"],
       "author": "Pastry Chef Sophie",
-      "datePublished": "2024-12-10"
+      "datePublished": "2024-12-10",
+      "rating": 4.9,
+      "reviewCount": 89
     },
     {
       "id": "3",
@@ -140,7 +144,9 @@
       },
       "tags": ["French", "Classic", "Elegant", "Make-ahead", "Vanilla"],
       "author": "Chef Pierre Dubois",
-      "datePublished": "2024-12-08"
+      "datePublished": "2024-12-08",
+      "rating": 4.7,
+      "reviewCount": 156
     },
     {
       "id": "4",
@@ -191,7 +197,9 @@
       },
       "tags": ["French", "Colorful", "Delicate", "Advanced", "Gift-worthy"],
       "author": "Pâtissier Laurent",
-      "datePublished": "2024-12-05"
+      "datePublished": "2024-12-05",
+      "rating": 4.6,
+      "reviewCount": 67
     },
     {
       "id": "5",
@@ -242,7 +250,9 @@
       },
       "tags": ["American", "Classic", "Rich", "Make-ahead", "Crowd-pleaser"],
       "author": "Baker Sarah Johnson",
-      "datePublished": "2024-12-12"
+      "datePublished": "2024-12-12",
+      "rating": 4.5,
+      "reviewCount": 203
     },
     {
       "id": "6",
@@ -292,7 +302,9 @@
       },
       "tags": ["Chocolate", "Easy", "Quick", "Kid-friendly", "Classic"],
       "author": "Home Baker Emma",
-      "datePublished": "2024-12-18"
+      "datePublished": "2024-12-18",
+      "rating": 4.9,
+      "reviewCount": 312
     },
     {
       "id": "7",
@@ -345,7 +357,9 @@
       },
       "tags": ["French", "Elegant", "Cream-filled", "Advanced", "Impressive"],
       "author": "Chef Antoine",
-      "datePublished": "2024-12-07"
+      "datePublished": "2024-12-07",
+      "rating": 4.4,
+      "reviewCount": 45
     },
     {
       "id": "8",
@@ -391,7 +405,9 @@
       },
       "tags": ["Italian", "No-bake", "Elegant", "Make-ahead", "Easy"],
       "author": "Chef Isabella Romano",
-      "datePublished": "2024-12-14"
+      "datePublished": "2024-12-14",
+      "rating": 4.7,
+      "reviewCount": 178
     },
     {
       "id": "9",
@@ -446,7 +462,9 @@
       },
       "tags": ["American", "Classic", "Comfort food", "Fall", "Thanksgiving"],
       "author": "Baker Mary Williams",
-      "datePublished": "2024-12-09"
+      "datePublished": "2024-12-09",
+      "rating": 4.6,
+      "reviewCount": 234
     },
     {
       "id": "10",
@@ -494,7 +512,335 @@
       },
       "tags": ["Italian", "Ice cream", "Summer", "Chocolate", "Homemade"],
       "author": "Gelatiere Giuseppe",
-      "datePublished": "2024-12-11"
-    }
+      "datePublished": "2024-12-11",
+      "rating": 4.8,
+      "reviewCount": 91
+    },
+    {
+  "id": "11",
+  "slug": "matcha-cheesecake",
+  "title": "Japanese Matcha Cheesecake",
+  "description": "Light and fluffy Japanese-style cheesecake infused with earthy matcha green tea flavor. A delicate and airy dessert.",
+  "image": "/images/recipes/matcha-cheesecake.jfif",
+  "imageSource": "https://id.pinterest.com/pin/40961652852553706/",
+  "category": "cake",
+  "difficulty": "medium",
+  "prepTime": 25,
+  "cookTime": 50,
+  "servings": 8,
+  "ingredients": [
+    { "item": "Cream cheese", "amount": "250", "unit": "g" },
+    { "item": "Unsalted butter", "amount": "50", "unit": "g" },
+    { "item": "Milk", "amount": "100", "unit": "ml" },
+    { "item": "Cake flour", "amount": "60", "unit": "g" },
+    { "item": "Matcha powder", "amount": "2", "unit": "tbsp" },
+    { "item": "Egg yolks", "amount": "5", "unit": "pieces" },
+    { "item": "Egg whites", "amount": "5", "unit": "pieces" },
+    { "item": "Granulated sugar", "amount": "120", "unit": "g" },
+    { "item": "Lemon juice", "amount": "1", "unit": "tsp" }
+  ],
+  "instructions": [
+    "Preheat oven to 320°F (160°C).",
+    "Melt cream cheese, butter, and milk together over a double boiler.",
+    "Whisk until smooth and remove from heat.",
+    "Mix in egg yolks one at a time.",
+    "Sift cake flour and matcha powder, then fold into batter.",
+    "In another bowl, beat egg whites with lemon juice until foamy.",
+    "Gradually add sugar and beat until soft peaks form.",
+    "Fold meringue into batter gently in three additions.",
+    "Pour batter into a lined cake pan.",
+    "Place pan into a larger pan with hot water (water bath).",
+    "Bake for 50 minutes until set.",
+    "Let cool completely before slicing.",
+    "Dust with powdered sugar before serving."
+  ],
+  "nutritionInfo": {
+    "calories": 260,
+    "protein": "7g",
+    "carbs": "20g",
+    "fat": "17g"
+  },
+  "tags": ["Japanese", "Matcha", "Light", "Tea", "Modern"],
+  "author": "Chef Haruto Tanaka",
+  "datePublished": "2024-12-20",
+  "rating": 4.7,
+  "reviewCount": 54
+},
+{
+  "id": "12",
+  "slug": "strawberry-shortcake",
+  "title": "Classic Strawberry Shortcake",
+  "description": "Fluffy shortcake biscuits layered with fresh strawberries and whipped cream. A refreshing and simple dessert.",
+  "image": "/images/recipes/strawberry-shortcake.jfif",
+  "imageSource": "https://id.pinterest.com/pin/10414642890092856/",
+  "category": "cake",
+  "difficulty": "easy",
+  "prepTime": 20,
+  "cookTime": 18,
+  "servings": 6,
+  "ingredients": [
+    { "item": "All-purpose flour", "amount": "200", "unit": "g" },
+    { "item": "Granulated sugar", "amount": "50", "unit": "g" },
+    { "item": "Baking powder", "amount": "2", "unit": "tsp" },
+    { "item": "Salt", "amount": "0.5", "unit": "tsp" },
+    { "item": "Cold butter", "amount": "80", "unit": "g" },
+    { "item": "Milk", "amount": "120", "unit": "ml" },
+    { "item": "Fresh strawberries", "amount": "300", "unit": "g" },
+    { "item": "Heavy cream", "amount": "250", "unit": "ml" },
+    { "item": "Powdered sugar", "amount": "2", "unit": "tbsp" }
+  ],
+  "instructions": [
+    "Preheat oven to 400°F (200°C).",
+    "Mix flour, sugar, baking powder, and salt in a bowl.",
+    "Cut in cold butter until mixture resembles crumbs.",
+    "Add milk and mix until dough forms.",
+    "Roll dough and cut into biscuit rounds.",
+    "Bake for 15-18 minutes until golden.",
+    "Slice strawberries and toss with a little sugar.",
+    "Whip cream with powdered sugar until soft peaks form.",
+    "Slice biscuits in half.",
+    "Layer biscuit, strawberries, and whipped cream.",
+    "Top with another biscuit half and more cream.",
+    "Serve immediately."
+  ],
+  "nutritionInfo": {
+    "calories": 310,
+    "protein": "5g",
+    "carbs": "36g",
+    "fat": "16g"
+  },
+  "tags": ["Summer", "Strawberry", "Classic", "Fresh", "Easy"],
+  "author": "Baker Olivia Green",
+  "datePublished": "2024-12-19",
+  "rating": 4.6,
+  "reviewCount": 72
+},
+{
+  "id": "13",
+  "slug": "mango-sticky-rice",
+  "title": "Thai Mango Sticky Rice",
+  "description": "Traditional Thai dessert made with sweet coconut sticky rice served with fresh ripe mango.",
+  "image": "/images/recipes/mango-sticky-rice.jfif",
+  "imageSource": "https://id.pinterest.com/pin/414753446975080227/",
+  "category": "pudding",
+  "difficulty": "easy",
+  "prepTime": 15,
+  "cookTime": 25,
+  "servings": 4,
+  "ingredients": [
+    { "item": "Glutinous rice", "amount": "200", "unit": "g" },
+    { "item": "Coconut milk", "amount": "250", "unit": "ml" },
+    { "item": "Sugar", "amount": "80", "unit": "g" },
+    { "item": "Salt", "amount": "0.5", "unit": "tsp" },
+    { "item": "Ripe mango", "amount": "2", "unit": "pieces" },
+    { "item": "Cornstarch", "amount": "1", "unit": "tsp" }
+  ],
+  "instructions": [
+    "Soak sticky rice in water for at least 2 hours.",
+    "Steam rice for 20-25 minutes until tender.",
+    "Heat coconut milk with sugar and salt until dissolved.",
+    "Reserve a small portion of coconut sauce for topping.",
+    "Mix hot sticky rice with the remaining coconut milk mixture.",
+    "Let it absorb for 10 minutes.",
+    "Slice ripe mango into thin pieces.",
+    "Serve sticky rice with mango slices.",
+    "Drizzle with coconut sauce before serving."
+  ],
+  "nutritionInfo": {
+    "calories": 330,
+    "protein": "4g",
+    "carbs": "55g",
+    "fat": "11g"
+  },
+  "tags": ["Thai", "Tropical", "Rice", "Coconut", "Mango"],
+  "author": "Chef Somchai",
+  "datePublished": "2024-12-21",
+  "rating": 4.8,
+  "reviewCount": 64
+},
+{
+  "id": "14",
+  "slug": "churros-with-chocolate",
+  "title": "Spanish Churros with Chocolate Sauce",
+  "description": "Crispy fried dough sticks coated in cinnamon sugar and served with rich chocolate dipping sauce.",
+  "image": "/images/recipes/churros.jfif",
+  "imageSource": "https://id.pinterest.com/pin/2814818481203173/",
+  "category": "pastry",
+  "difficulty": "easy",
+  "prepTime": 20,
+  "cookTime": 15,
+  "servings": 6,
+  "ingredients": [
+    { "item": "Water", "amount": "250", "unit": "ml" },
+    { "item": "Unsalted butter", "amount": "60", "unit": "g" },
+    { "item": "Sugar", "amount": "2", "unit": "tbsp" },
+    { "item": "Salt", "amount": "0.5", "unit": "tsp" },
+    { "item": "All-purpose flour", "amount": "150", "unit": "g" },
+    { "item": "Eggs", "amount": "2", "unit": "pieces" },
+    { "item": "Vegetable oil", "amount": "500", "unit": "ml" },
+    { "item": "Cinnamon sugar", "amount": "100", "unit": "g" },
+    { "item": "Dark chocolate", "amount": "150", "unit": "g" },
+    { "item": "Heavy cream", "amount": "120", "unit": "ml" }
+  ],
+  "instructions": [
+    "Heat water, butter, sugar, and salt in a saucepan.",
+    "Add flour and stir vigorously until dough forms.",
+    "Remove from heat and mix in eggs one at a time.",
+    "Transfer dough to piping bag with star tip.",
+    "Heat oil to 350°F (175°C).",
+    "Pipe dough directly into hot oil and cut with scissors.",
+    "Fry until golden brown.",
+    "Drain on paper towels.",
+    "Roll churros in cinnamon sugar.",
+    "Heat cream and pour over chopped chocolate to make sauce.",
+    "Serve churros warm with chocolate dipping sauce."
+  ],
+  "nutritionInfo": {
+    "calories": 320,
+    "protein": "5g",
+    "carbs": "38g",
+    "fat": "16g"
+  },
+  "tags": ["Spanish", "Fried", "Street Food", "Chocolate", "Snack"],
+  "author": "Chef Carlos Rivera",
+  "datePublished": "2024-12-22",
+  "rating": 4.7,
+  "reviewCount": 58
+},
+{
+  "id": "15",
+  "slug": "lemon-tart",
+  "title": "Classic Lemon Tart",
+  "description": "Tangy lemon custard filling in a buttery tart shell. A refreshing dessert with the perfect balance of sweet and sour.",
+  "image": "/images/recipes/lemon-tart.jfif",
+  "imageSource": "https://id.pinterest.com/pin/20688479538851623/",
+  "category": "tart",
+  "difficulty": "medium",
+  "prepTime": 35,
+  "cookTime": 30,
+  "servings": 8,
+  "ingredients": [
+    { "item": "All-purpose flour", "amount": "200", "unit": "g" },
+    { "item": "Cold butter", "amount": "120", "unit": "g" },
+    { "item": "Powdered sugar", "amount": "60", "unit": "g" },
+    { "item": "Egg yolk", "amount": "1", "unit": "piece" },
+    { "item": "Lemon juice", "amount": "120", "unit": "ml" },
+    { "item": "Lemon zest", "amount": "2", "unit": "tsp" },
+    { "item": "Granulated sugar", "amount": "150", "unit": "g" },
+    { "item": "Eggs", "amount": "3", "unit": "pieces" },
+    { "item": "Heavy cream", "amount": "100", "unit": "ml" }
+  ],
+  "instructions": [
+    "Mix flour, powdered sugar, and butter until crumbly.",
+    "Add egg yolk and mix into dough.",
+    "Chill dough for 30 minutes.",
+    "Roll out dough and press into tart pan.",
+    "Bake crust at 350°F (175°C) for 15 minutes.",
+    "Whisk lemon juice, zest, sugar, eggs, and cream.",
+    "Pour mixture into pre-baked crust.",
+    "Bake for 20 minutes until filling is set.",
+    "Cool completely before slicing.",
+    "Dust with powdered sugar before serving."
+  ],
+  "nutritionInfo": {
+    "calories": 295,
+    "protein": "4g",
+    "carbs": "34g",
+    "fat": "16g"
+  },
+  "tags": ["Citrus", "French", "Tangy", "Elegant", "Classic"],
+  "author": "Chef Luc Martin",
+  "datePublished": "2024-12-23",
+  "rating": 4.6,
+  "reviewCount": 61
+},
+{
+  "id": "16",
+  "slug": "banana-bread",
+  "title": "Moist Banana Bread",
+  "description": "Soft and moist banana bread made with ripe bananas and a hint of vanilla. Perfect for breakfast or dessert.",
+  "image": "/images/recipes/banana-bread.jfif",
+  "imageSource": "https://id.pinterest.com/pin/68748303803/",
+  "category": "cake",
+  "difficulty": "easy",
+  "prepTime": 15,
+  "cookTime": 55,
+  "servings": 8,
+  "ingredients": [
+    { "item": "Ripe bananas", "amount": "3", "unit": "pieces" },
+    { "item": "All-purpose flour", "amount": "200", "unit": "g" },
+    { "item": "Sugar", "amount": "150", "unit": "g" },
+    { "item": "Eggs", "amount": "2", "unit": "pieces" },
+    { "item": "Unsalted butter", "amount": "100", "unit": "g" },
+    { "item": "Baking soda", "amount": "1", "unit": "tsp" },
+    { "item": "Salt", "amount": "0.5", "unit": "tsp" },
+    { "item": "Vanilla extract", "amount": "1", "unit": "tsp" }
+  ],
+  "instructions": [
+    "Preheat oven to 350°F (175°C).",
+    "Mash bananas in a bowl.",
+    "Mix melted butter with mashed bananas.",
+    "Add sugar, eggs, and vanilla extract.",
+    "Stir in flour, baking soda, and salt.",
+    "Pour batter into greased loaf pan.",
+    "Bake for 50–55 minutes until a toothpick comes out clean.",
+    "Cool before slicing.",
+    "Serve warm or at room temperature."
+  ],
+  "nutritionInfo": {
+    "calories": 270,
+    "protein": "4g",
+    "carbs": "40g",
+    "fat": "11g"
+  },
+  "tags": ["Banana", "Homemade", "Easy", "Breakfast", "Classic"],
+  "author": "Baker Daniel Moore",
+  "datePublished": "2024-12-24",
+  "rating": 4.8,
+  "reviewCount": 104
+},
+{
+  "id": "17",
+  "slug": "peach-cobbler",
+  "title": "Southern Peach Cobbler",
+  "description": "Warm baked peaches topped with a golden buttery biscuit crust. A comforting Southern dessert.",
+  "image": "/images/recipes/peach-cobbler.jfif",
+  "imageSource": "https://id.pinterest.com/pin/420453315221532451/",
+  "category": "tart",
+  "difficulty": "easy",
+  "prepTime": 20,
+  "cookTime": 40,
+  "servings": 8,
+  "ingredients": [
+    { "item": "Fresh peaches", "amount": "600", "unit": "g" },
+    { "item": "Granulated sugar", "amount": "120", "unit": "g" },
+    { "item": "Lemon juice", "amount": "1", "unit": "tbsp" },
+    { "item": "All-purpose flour", "amount": "150", "unit": "g" },
+    { "item": "Baking powder", "amount": "2", "unit": "tsp" },
+    { "item": "Milk", "amount": "150", "unit": "ml" },
+    { "item": "Butter", "amount": "100", "unit": "g" }
+  ],
+  "instructions": [
+    "Preheat oven to 375°F (190°C).",
+    "Slice peaches and mix with sugar and lemon juice.",
+    "Place peaches in a baking dish.",
+    "Melt butter and pour into the dish.",
+    "Mix flour, baking powder, sugar, and milk to make batter.",
+    "Pour batter evenly over peaches.",
+    "Bake for 35–40 minutes until golden brown.",
+    "Serve warm with vanilla ice cream."
+  ],
+  "nutritionInfo": {
+    "calories": 310,
+    "protein": "3g",
+    "carbs": "45g",
+    "fat": "13g"
+  },
+  "tags": ["Southern", "Fruit", "Comfort Food", "Summer", "Easy"],
+  "author": "Chef Amelia Brooks",
+  "datePublished": "2024-12-25",
+  "rating": 4.5,
+  "reviewCount": 49
+}
   ]
 }

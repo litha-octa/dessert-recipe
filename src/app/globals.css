@@ -53,17 +53,33 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--color-cream);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode body */
+.dark body,
+html.dark body {
+  background: #030712;
+  color: #ededed;
+}
+
+/* Smooth transitions for dark mode */
+* {
+  transition-property: background-color, border-color, color;
+  transition-timing-function: ease;
+  transition-duration: 0s;
+}
+
+/* Only apply transition to specific elements for performance */
+.dark body,
+header, footer, main, section,
+.bg-white, .bg-cream, .bg-gray-50,
+[class*="dark:bg-"] {
+  transition-duration: 0.3s;
 }
 
 /* Print styles */
@@ -78,7 +94,6 @@ body {
     print-color-adjust: exact !important;
   }
 
-  /* Print page specific styles */
   .print-page {
     padding: 0 !important;
     max-width: 100% !important;
@@ -89,7 +104,6 @@ body {
     break-inside: avoid;
   }
 
-  /* Ensure background images print */
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
