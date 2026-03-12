@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(cd \"C:/Users/Litha Octa/Documents/litha's project/dessert-recipe\" && npx tsc --noEmit 2>&1 | tail -30)",
+      "Bash(cd \"C:/Users/Litha Octa/Documents/litha's project/dessert-recipe\" && timeout 15 npx next dev 2>&1 | head -20 || true)"
     ]
   }
 }

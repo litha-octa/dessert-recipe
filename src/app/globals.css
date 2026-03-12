@@ -82,6 +82,11 @@ header, footer, main, section,
   transition-duration: 0.3s;
 }
 
+/* Hide scrollbar for trending section */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Print styles */
 @media print {
   .print\:hidden {

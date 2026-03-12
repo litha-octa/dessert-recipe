@@ -8,6 +8,7 @@ import TimerPopup from "@/components/TimerPopup";
 import ShoppingListPDF from "@/components/ShoppingListPDF";
 import RecipeActions from "@/components/RecipeActions";
 import FavoriteButton from "@/components/FavoriteButton";
+import StarRating from "@/components/StarRating";
 import { useTheme } from "@/context/ThemeContext";
 import { Sun, Moon } from "lucide-react";
 
@@ -56,6 +57,18 @@ function scaleAmount(amount: string, ratio: number): string {
 export default function RecipeDetailClient({ recipe }: { recipe: RecipeData }) {
   const { toggleTheme, isDark, theme } = useTheme();
   const [currentServings, setCurrentServings] = useState(recipe.servings);
+  const [userRating, setUserRating] = useState<number>(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem(`rating-${recipe.id}`);
+      return saved ? parseFloat(saved) : 0;
+    }
+    return 0;
+  });
+
+  const handleRate = (rating: number) => {
+    setUserRating(rating);
+    localStorage.setItem(`rating-${recipe.id}`, rating.toString());
+  };
 
   const ratio = currentServings / recipe.servings;
   const scaledIngredients = recipe.ingredients.map((ing) => ({
@@ -112,21 +125,12 @@ export default function RecipeDetailClient({ recipe }: { recipe: RecipeData }) {
             </span>
             {recipe.rating && (
               <div className="flex items-center gap-2 mb-3">
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      size={16}
-                      className={
-                        i < Math.floor(recipe.rating!)
-                          ? "fill-yellow-400 text-yellow-400"
-                          : "text-white/40"
-                      }
-                    />
-                  ))}
-                </div>
-                <span className="text-white font-medium">{recipe.rating}</span>
-                <span className="text-white/70 text-sm">({recipe.reviewCount} reviews)</span>
+                <StarRating
+                  rating={recipe.rating}
+                  size={16}
+                  showValue
+                  reviewCount={recipe.reviewCount}
+                />
               </div>
             )}
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
@@ -349,6 +353,27 @@ export default function RecipeDetailClient({ recipe }: { recipe: RecipeData }) {
                   For best results, make sure all ingredients are at room temperature
                   before starting. This helps everything mix smoothly!
                 </p>
+              </div>
+
+              {/* Rate This Recipe */}
+              <div className="mt-8 p-6 bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-gray-700/50 dark:to-gray-700/30 border border-primary-200 dark:border-gray-600 rounded-xl text-center">
+                <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2">
+                  Rate This Recipe
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                  {userRating > 0
+                    ? `You rated this recipe ${userRating} star${userRating > 1 ? "s" : ""}!`
+                    : "How would you rate this recipe?"}
+                </p>
+                <div className="flex justify-center">
+                  <StarRating
+                    rating={userRating}
+                    onRate={handleRate}
+                    size={32}
+                    interactive
+                    showValue={false}
+                  />
+                </div>
               </div>
             </div>
           </motion.div>

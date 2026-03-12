@@ -2,15 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, ChefHat, Clock, Star, ArrowLeft } from "lucide-react";
+import { Heart, ArrowLeft } from "lucide-react";
 import { Recipe } from "@/types/recipe";
-import { CATEGORY_CONFIG, DIFFICULTY_CONFIG } from "@/lib/constants/categories";
-import { formatTime, calculateTotalTime } from "@/lib/utils/formatters";
 import { useFavorites } from "@/context/FavoritesContext";
-import FavoriteButton from "@/components/FavoriteButton";
-import { useTheme } from "@/context/ThemeContext";
+import RecipeCard from "@/components/RecipeCard";
+import { SkeletonGrid } from "@/components/SkeletonCard";
 
 export default function FavoritesPage() {
   const { favorites } = useFavorites();
@@ -63,10 +60,7 @@ export default function FavoritesPage() {
 
       <div className="container mx-auto px-4 py-12">
         {loading ? (
-          <div className="text-center py-20">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-primary-500 border-t-transparent"></div>
-            <p className="mt-4 text-gray-600 dark:text-gray-400">Loading your favorites...</p>
-          </div>
+          <SkeletonGrid count={3} />
         ) : favoriteRecipes.length === 0 ? (
           <motion.div
             className="text-center py-20"
@@ -95,79 +89,18 @@ export default function FavoritesPage() {
             layout
           >
             <AnimatePresence mode="popLayout">
-              {favoriteRecipes.map((recipe, index) => {
-                const categoryConfig = CATEGORY_CONFIG[recipe.category];
-                const difficultyConfig = DIFFICULTY_CONFIG[recipe.difficulty];
-                const totalTime = calculateTotalTime(recipe.prepTime, recipe.cookTime);
-
-                return (
-                  <motion.div
-                    key={recipe.id}
-                    layout
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="relative group h-full"
-                  >
-                    <div className="absolute top-4 left-4 z-10">
-                      <FavoriteButton
-                        recipeId={recipe.id}
-                        recipeName={recipe.title}
-                        size="md"
-                        className="p-2 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-full shadow-md hover:bg-white dark:hover:bg-gray-900"
-                      />
-                    </div>
-                    <Link href={`/recipe/${recipe.slug}`}>
-                      <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-card hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer h-full flex flex-col">
-                        <div className="relative h-56 bg-gray-200 dark:bg-gray-700 overflow-hidden">
-                          <Image
-                            src={recipe.image}
-                            alt={recipe.title}
-                            fill
-                            className="object-cover group-hover:scale-110 transition-transform duration-500"
-                          />
-                          <div className={`absolute top-4 right-4 ${categoryConfig.bgColor} ${categoryConfig.color} px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1`}>
-                            <span>{categoryConfig.icon}</span>
-                            <span>{categoryConfig.label}</span>
-                          </div>
-                        </div>
-                        <div className="p-6 flex-1 flex flex-col">
-                          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 line-clamp-2">
-                            {recipe.title}
-                          </h3>
-                          <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2 flex-1">
-                            {recipe.description}
-                          </p>
-                          {recipe.rating && (
-                            <div className="flex items-center gap-2 mb-3">
-                              <div className="flex items-center gap-1">
-                                {[...Array(5)].map((_, i) => (
-                                  <Star
-                                    key={i}
-                                    size={14}
-                                    className={i < Math.floor(recipe.rating!) ? "fill-yellow-400 text-yellow-400" : "text-gray-300 dark:text-gray-600"}
-                                  />
-                                ))}
-                              </div>
-                              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{recipe.rating}</span>
-                            </div>
-                          )}
-                          <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
-                            <div className="flex items-center gap-1">
-                              <Clock className="h-4 w-4" />
-                              <span>{formatTime(totalTime)}</span>
-                            </div>
-                            <div className={`${difficultyConfig.bgColor} ${difficultyConfig.color} px-3 py-1 rounded-full font-medium`}>
-                              {difficultyConfig.label}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  </motion.div>
-                );
-              })}
+              {favoriteRecipes.map((recipe, index) => (
+                <motion.div
+                  key={recipe.id}
+                  layout
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                >
+                  <RecipeCard recipe={recipe} />
+                </motion.div>
+              ))}
             </AnimatePresence>
           </motion.div>
         )}
